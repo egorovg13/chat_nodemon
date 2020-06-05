@@ -2,7 +2,11 @@ let express = require('express');
 let app = express();
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
-let { getTimestamp } = require('./js/node_service');
+
+// io.eio.pingTimeout = 240000; 
+// io.eio.pingInterval = 10000;  
+
+let { getTimestamp } = require('./public/js/node_timestamp.js');
 
 let users = {};
 
@@ -14,17 +18,11 @@ http.listen(3000, () => {
     console.log('listening on *:3000');
 });
 
-app.use('/css', express.static('css'));
-app.use('/img', express.static('img'));
-app.use('/js', express.static('js'));
-
-
+app.use(express.static('public'));
 
 io.on('connection', socket => {
 
     let socketId = socket.id;
-    
-    console.log('new user');
 
     socket.emit('socket-assigned', socketId);
 
@@ -57,7 +55,6 @@ io.on('connection', socket => {
 
     socket.on('new_avatar', img => {
         users[socketId].photo = img;
-        console.log(users);
         io.emit('avatar-updated', users);
     });
 });

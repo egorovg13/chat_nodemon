@@ -128,6 +128,7 @@ margin-top: 50px;
     margin: 0;
     align-items: start;
     grid-auto-rows: 40px;
+    overflow-y:auto
 }
 
 .chat_entry {
@@ -243,11 +244,6 @@ li {
     background-color: blueviolet;
   }
 
-/*  .chat_entry {
-      background-color: chartreuse;
-      padding: 10px;
-  } */
-
   .timestamp {
       display: inline-flex;
       color: rgb(222, 222, 222);
@@ -289,9 +285,6 @@ li {
     cursor: pointer;
 }
 
-.user_list {
-}
-
 .card_image {
     border-radius: 50%;
     width: 50px;
@@ -314,7 +307,9 @@ li {
 
 .card_message {
     font-weight: 300;
+    width: 225px;
     font-size: smaller;
+    text-overflow: clip;
 }
 
 .image_wrapper {
