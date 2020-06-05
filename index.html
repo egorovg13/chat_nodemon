@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Real-time web chat with socket.io developed on nodemon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script defer src = "http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src = "./js/client.js" type="module"></script>
+</head>
+<body>
+    <div class= "background" style="width: 100%; height: 100vh">
+        <div class = 'login_window'> 
+            <div class = 'login_art'>
+                <img id = 'dialog_icon' src="/img/icons8-chat-80.png">
+            </div>
+            <div class = 'login_helper' id = 'helper_header'> Авторизация </div>
+            <div class = 'login_helper' id = 'helper_text'>Введите свое имя и фамилию для авторизации</div>
+            <input class = 'login_input' id = 'name' placeholder = 'Имя'>
+            <input class = 'login_input' id = 'surname' placeholder = 'Фамилия'>
+
+            <button class = 'submit' id = 'authorize'>ВОЙТИ</button>
+        </div>
+    
+        <div class = 'chat_window'> 
+        <table class = 'table'>
+            <tr>
+                <td>
+                    <div class = 'settings'>
+                    <button class = 'submit' id = 'profile_settings'>Ваш профиль</button>
+                    </div>
+                </td>
+                <td>
+                    <div class = 'chat_header'>
+                    <div class = 'header_text'>Вы в чате</div>
+                    <div class="user_count">Участников онлайн: 1</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class = 'user_list_header'>Участники:</div>
+                    <div class = 'user_list'> 
+                        <div class = 'user_card'> 
+                            <div class = 'image_wrapper'> <img src = '/img/no_avatar.png' class = 'card_image'> </div>
+                            <div class = 'card_name'> Петя Васин </div>
+                            <div class = 'card_message'><Привет!></div>
+                        </div>
+
+                    </div>
+                </td>
+                <td>
+                    <div class = 'chat_history'>
+                        <!-- 
+                        <div class = 'chat_entry'>
+                            <img class = 'chat_avatar' src = '/img/no_avatar.png'>
+                            <div class = 'chat_message'> 
+                                <div class = 'chat_text'>Привет. Как дела? Lorem ipsum, dolor sit amet consectetur.</div><div class = 'timestamp'>10.30</div>
+                            </div>
+                            <img class = 'chat_avatar' src = '/img/no_avatar.png'>
+                        </div>
+                        -->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+    
+                </td>
+                <td>
+                    <form class = 'message_container'>
+                    <input class = 'message_input' placeholder = 'Введите сообщение'> <button type = "submit" class = 'submit' id = 'send'>Отправить</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        </div>
+    
+        <div class = 'settings_window'>
+    
+        <div class = 'photo-editor'> 
+        <div class = 'photo-header'> Загрузка Фото </div>
+        <div class = 'photo-preview'>
+            <input type = 'file' id = 'photo_input' accept='image/*'>
+            <label for="photo_input" class='file_label'>
+                <img src = '/img/upload.png' class='upload_image'>
+            </label>
+        </div>
+        <div class = 'photo-prompt'> Область для профильной фотографии
+        </div>
+        <div class = 'photo-control'>
+            <button class = 'submit photo-button' id = 'photo_cancel'>ОТМЕНА</button>
+            <button class = 'submit photo-button' id = 'photo_save'>СОХРАНИТЬ</button>
+        </div>
+        </div>
+    
+        </div>
+    
+    </div>
+    
+</body>
+</html>
