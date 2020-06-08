@@ -20,8 +20,7 @@ const getTimestamp = () => {
 };
 
 const updateLastMessage = (userId, message) => {
-    let userSelector = '.' + userId;
-    let messageContainer = document.querySelector(userSelector);
+    let messageContainer = document.getElementById(userId);
     
     messageContainer.innerText = message;
 };
@@ -97,7 +96,7 @@ const createUserCard = (user, userObj) => {
     cardImage.classList.add('card_image');
     cardName.classList.add('card_name');
     cardMessage.classList.add('card_message');
-    cardMessage.classList.add(user);
+    cardMessage.id = user;
 
     imageWrapper.append(cardImage);
     userCard.append(imageWrapper);

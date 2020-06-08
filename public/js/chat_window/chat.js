@@ -58,16 +58,22 @@ profileBtn.addEventListener('click', () => {
 });
 
 messageForm.addEventListener('submit', e => {
-    e.preventDefault();
     let message = messageInput.value;
-    let time = getTimestamp();
 
-    updateLastMessage(mySocket, message);
+    e.preventDefault();
 
-    addChatHistory(mySocket, users, message, time, false);
+    if (message.length > 0)
 
-    socket.emit('send_message', message);
-    messageInput.value = '';
+    {
+        let time = getTimestamp();
+
+        updateLastMessage(mySocket, message);
+
+        addChatHistory(mySocket, users, message, time, false);
+
+        socket.emit('send_message', message);
+        messageInput.value = '';
+}
 
 });
 
